@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'bootstrap-sass'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
