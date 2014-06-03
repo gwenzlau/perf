@@ -1,36 +1,12 @@
 
-<h3>Order a sample</h3>
-
-<form action="MAILTO:grantwenzlau@gmail.com" method="post" enctype="text/plain">
-	<div class="item">
-		<img src="http://placehold.it/300x300">
-		<input type="checkbox" name="pool" value="1">
-	</div>
-	<hr>
-	<div class="item">
-		<img src="http://placehold.it/300x300">
-		<input type="checkbox" name="couch" value="2">
-	</div>
-	<hr>
-	<div class="item">
-		<img src="http://placehold.it/300x300">
-		<input type="checkbox" name="globe" value="3">
-	</div>
-	<hr>
-	<div class="item">
-		<img src="http://placehold.it/300x300">
-		<input type="checkbox" name="paris" value="4">
-	</div>
-	<hr>
-	<div class="item">
-		<img src="http://placehold.it/300x300">
-		<input type="checkbox" name="lemonade" value="5">
-	</div>
-	<hr>
-	<div class="item">
-		<img src="http://placehold.it/300x300">
-		<input type="checkbox" name="silk" value="6">
-	</div>
-<input type="submit" value="Send">
-<input type="reset" value="Reset">
-</form>
+<h3>Nosy Parker</h3>
+<%= simple_form_for @order do |f| %>
+	<h4>Perfume choices (item index?)</h4>
+	<% @items.each do |item| %>
+	<% end %>
+	<h4> Checkout </h4>
+  <%= f.input :name, placeholder: 'name' %>	
+  <%= f.input :email, placeholder: 'user@domain.com' %>
+  <%= f.input :address, placeholder: 'address' %>
+  <%= f.button :submit %>
+<% end %>

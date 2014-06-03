@@ -1,4 +1,8 @@
 Perfume::Application.routes.draw do
+  resources :items
+
+  resources :orders
+
   root "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
