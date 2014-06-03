@@ -5,6 +5,11 @@ class ItemsController < ApplicationController
 
 	def create
 		@item = Item.create(item_params)
+		if @item.save
+      redirect_to @item, notice: 'Item was successfully created.'
+    else
+      render action: 'new'
+    end
 	end
 
 	def new
