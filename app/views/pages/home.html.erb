@@ -3,8 +3,8 @@
 <p align="center"><i><small>Get Nosy</small></i></p>
 <%= simple_form_for @order do |f| %>
 	<h4>Perfume choices</h4>
-	<% @items.each do |item| %>
-  <%= image_tag @item.image %>
+	<%= @items.each do |item| %>
+  <%= image_tag item.image %>
 	<% end %>
 	<hr>
 	<h4> Checkout </h4>
