@@ -2,11 +2,16 @@ class OrdersController < ApplicationController
 	
 	def create
 		@order = Order.create(order_params)
-		if @order.save
-      redirect_to '/', notice: 'Order was successfully posted.'
-    	else
-      render action: 'new'
-		end
+      	if @order.save
+       	 format.html { redirect_to '/', notice: 'Order was successfully sent!' }
+       	 format.json { render json: @order, status: :created, location: @order }
+      	else
+       	 redirect_to '/', notice: 'Please check the fields and try again'
+      	end
+	end
+
+	def new
+		@order = Order.create
 	end
 
 	private

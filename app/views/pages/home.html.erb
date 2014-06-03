@@ -2,15 +2,16 @@
 <h3 align="center">Nosy Parker</h3>
 <p align="center"><i><small>Get Nosy</small></i></p>
 <%= simple_form_for @order do |f| %>
+<%= f.error_notification %>
 	<h4>Perfume choices</h4>
 	<%= render @items %>
 	<hr>
 	<h4> Checkout </h4>
   <%= f.fields_for :name, @order.name do |n| %>
-  	<%= n.input :first_name, placeholder: 'First Name' %>
-  	<%= n.input :last_name, placeholder: 'Last Name' %>
+  	<%= n.input :first_name, required: true, placeholder: 'First Name' %>
+  	<%= n.input :last_name, required: true, placeholder: 'Last Name' %>
   <% end %>
-  <%= f.input :email, placeholder: 'user@domain.com' %> 
+  <%= f.input :email, required: true, placeholder: 'user@domain.com' %> 
   <%= f.fields_for :address, @order.address do |a| %>
   <p>Shipping Address</p>
      <%= a.text_field :street, placeholder: '123 Main Street' %>
