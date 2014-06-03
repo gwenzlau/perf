@@ -1,12 +1,23 @@
 
 <h3>Nosy Parker</h3>
 <%= simple_form_for @order do |f| %>
-	<h4>Perfume choices (item index?)</h4>
+	<h4>Perfume choices</h4>
 	<% @items.each do |item| %>
 	<% end %>
+	<hr>
 	<h4> Checkout </h4>
-  <%= f.input :name, placeholder: 'name' %>	
-  <%= f.input :email, placeholder: 'user@domain.com' %>
-  <%= f.input :address, placeholder: 'address' %>
+  <%= f.fields_for :name, @order.name do |n| %>
+  	<%= n.input :first_name, placeholder: 'First Name' %>
+  	<%= n.input :last_name, placeholder: 'Last Name' %>
+  <% end %>
+  <%= f.input :email, placeholder: 'user@domain.com' %> 
+  <%= f.fields_for :address, @order.address do |a| %>
+  <p>Shipping Address</p>
+     <%= a.text_field :street, placeholder: '123 Main Street' %>
+     <%= a.text_field :city, placeholder: 'Los Angeles' %>
+     <%= a.text_field :state, placeholder: 'CA' %>
+     <%= a.text_field :country, placeholder: 'USA' %>
+     <%= a.text_field :zip, placeholder: '90031' %>
+   <% end %>
   <%= f.button :submit %>
 <% end %>
