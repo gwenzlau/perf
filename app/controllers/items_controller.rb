@@ -1,24 +1,29 @@
 class ItemsController < ApplicationController
 	def index
-		@items = Item.all.order("created_at DESC")
-	end
-
-	def create
-		@item = Item.create(item_params)
-		if @item.save
-      redirect_to @item, notice: 'Item was successfully created.'
+    @items = Item.all
+  end
+  
+  def show
+    @item = Item.find(params[:id])
+  end
+  
+  def new
+    @item = Item.new
+  end
+  
+  def create
+    @item = Item.new(params[item_params])
+    if @item.save
+      flash[:notice] = "Successfully created item."
+      redirect_to @item
     else
-      render action: 'new'
+      render :action => 'new'
     end
-	end
+  end
 
-	def new
-		@item = Item.new
-	end
-
-	def show
-		@item = Item.find(params[:id])
-	end
+  def edit
+    @item = Item.find(params[:id])
+  end
 	# Use strong_parameters for attribute whitelisting
 # Be sure to update your create() and update() controller methods.
 private
@@ -28,6 +33,6 @@ private
     end
 
 def item_params
-  params.require(:item).permit(:image)
+  params.require(:item).permit(:image, :name)
 end
 end

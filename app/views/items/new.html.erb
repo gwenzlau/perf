@@ -1,11 +1,5 @@
-<%= simple_form_for @item do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :image_file_size, class: "alert alert-error" %>
-  <%= f.full_error :image_content_type, class: "alert alert-error" %>
+<h1>Add A New Product </h1>
 
-  <%= f.input :image, label: "Upload an image" %>
+<%= render :partial => 'form' %>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
-  </div>
-<% end %>
+<p><%= link_to "Back to List", items_path %></p>

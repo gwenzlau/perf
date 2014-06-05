@@ -1,22 +1,10 @@
 
-<h3 align="center">Nosy Parker</h3>
-<p align="center"><i><small>Get Nosy</small></i></p>
+
+<h1> "New Order" </h1>
+
 <%= simple_form_for(@order) do |f| %>
-<%= f.error_notification %>
-	<h4>Perfume choices</h4>
-	<h2> Checkout </h2>
-  <%= f.fields_for :name, @order.name do |n| %>
-  	<%= n.input :first_name, required: true, placeholder: 'First Name' %>
-  	<%= n.input :last_name, required: true, placeholder: 'Last Name' %>
-  <% end %>
-  <%= f.input :email, required: true, placeholder: 'user@domain.com' %> 
-  <%= f.fields_for :address, @order.address do |a| %>
-  <p>Shipping Address</p>
-     <%= a.text_field :street, placeholder: '123 Main Street' %>
-     <%= a.text_field :city, placeholder: 'Los Angeles' %>
-     <%= a.text_field :state, placeholder: 'CA' %>
-     <%= a.text_field :country, placeholder: 'USA' %>
-     <%= a.text_field :zip, placeholder: '90031' %>
-   <% end %>
-  <%= f.button :submit %>
+    <%= f.input :name %>
+  
+    <%= f.input :email %>
+  <%= f.submit "Submit" %>
 <% end %>
