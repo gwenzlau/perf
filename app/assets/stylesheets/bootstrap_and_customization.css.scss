@@ -1,1 +1,85 @@
 @import 'bootstrap';
+
+body {
+font-family: courier new,monospace;
+}
+
+#container {
+width: 1000px;
+margin: 0 auto;
+position: relative;
+}
+
+#top {
+padding: 5px 0;
+border-bottom: 1px solid;
+border-color: #CCCCCC;
+margin: 0 5px;
+}
+
+#top-nav {
+overflow: hidden;
+}
+
+#links {
+margin: 0;
+line-height: 20px;
+float: left;
+overflow: hidden;
+}
+
+#links>li {
+display: inline;
+}
+
+#content {
+position: relative;
+}
+
+.post {
+min-height: 24px;
+margin: 5px;
+position: absolute;
+overflow: hidden;
+padding: 0;
+background-color: #fff;
+}
+
+.the-photo {
+text-align: center;
+}
+
+#container img {
+width: auto;
+height: auto;
+max-width: 100%;
+border: 0;
+}
+
+#index .meta {
+height: 24px;
+line-height: 24px;
+text-align: center;
+opacity: .75;
+display: none;
+overflow: hidden;
+z-index: 300;
+}
+
+#index .right-block {
+width: 100%;
+position: absolute;
+left: 0;
+bottom: 0;
+}
+
+#index.animations.transitions.fadein .post.opaque, .animations.transitions .infscr.opaque {
+opacity: 1;
+}
+
+.transition-opacity {
+transition: opacity .4s;
+-moz-transition: opacity .4s;
+-webkit-transition: opacity .4s;
+-o-transition-transition: opacity .4s;
+}
