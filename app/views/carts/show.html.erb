@@ -1,22 +1,14 @@
-<h1> "Shopping Cart" </h1>
-
-<table id="line_items">
-  <tr>
-    <th>Product</th>
-    <th>Qty</th>
-  </tr>
+<h1> Cart#Show </h1>
+  You have selected <%= @cart.line_items.count %> items.
+  <br>
   <% for line_item in @cart.line_items %>
-    <tr class="<%= cycle :odd, :even %>">
-      <td><%= image_tag line_item.item.image %></td>
-      <td class="qty"><%= line_item.quantity %></td>
-    </tr>
+      <%= image_tag line_item.item.image %>
+        <%= line_item.item.name %>
+        <%= link_to 'Remove', line_item_path(line_item.item, @item), method: :delete, data: {confirm:' Ya sure?'} %>
   <% end %>
-  <tr>
-    <td class="total price" colspan="4">
+  
       Total: (add price field later)
-    </td>
-  </tr>
-</table>
+    
 
 <p>
   <%= link_to "Continue Shopping", items_path %> |
