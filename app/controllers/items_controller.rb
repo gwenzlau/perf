@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 	def index
     @items = Item.all
+    @cart = current_cart
   end
   
   def show
