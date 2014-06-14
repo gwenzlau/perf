@@ -9,4 +9,5 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
+Perfume::Application.config.secret_token = ENV["RAILS_COOKIE_SECRET"]
 Perfume::Application.config.secret_key_base = ENV["RAILS_COOKIE_SECRET"]
