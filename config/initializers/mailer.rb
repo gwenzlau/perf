@@ -11,3 +11,6 @@ ActionMailer::Base.smtp_settings =  {
     :user_name          => "grantwenzlau",
     :password           => "gkw7930864"
   }
+
+  ActionMailer::Base.default_url_options[:host] = "nosyparker.herokuapp.com"
+Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
