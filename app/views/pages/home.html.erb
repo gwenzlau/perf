@@ -5,8 +5,7 @@
 <%= f.error_notification %>
 	<h4>Perfume choices</h4>
 	<%= render @items %>
-	<hr>
-	<h4> Checkout </h4>
+	<h2> Checkout </h2>
   <%= f.fields_for :name, @order.name do |n| %>
   	<%= n.input :first_name, required: true, placeholder: 'First Name' %>
   	<%= n.input :last_name, required: true, placeholder: 'Last Name' %>

@@ -1,9 +1,14 @@
 Perfume::Application.routes.draw do
+  devise_for :admins
+  resources :line_items
+
+  resources :carts
+
   resources :items
 
   resources :orders
 
-  root "pages#home"
+  root "items#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

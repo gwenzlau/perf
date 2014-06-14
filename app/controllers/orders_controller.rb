@@ -1,16 +1,24 @@
 class OrdersController < ApplicationController
 	
-	def create
-		@order = Order.create(order_params)
-      	if @order.save
-      	 redirect_to '/', notice: 'Order was successfully sent!'
-      	 else
-      	 render action: 'new'
-    	end
-	end
-
-	def new
+	 def new
+    @order = Order.new
   	end
+  
+  def create
+    @order = current_cart.build_order(params[order_params])
+    @order.ip_address = request.remote_ip
+    if @order.save
+      if @order.save
+        render :action => "success"
+      else
+        render :action => "failure"
+      end
+    else
+      render :action => 'new'
+    end
+    #email
+  end
+
 
 	private
     # Use callbacks to share common setup or constraints between actions.
