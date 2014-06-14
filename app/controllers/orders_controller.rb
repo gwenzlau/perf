@@ -8,11 +8,19 @@ class OrdersController < ApplicationController
   def create
     @order = current_cart.build_order(params[order_params])
     @order.ip_address = request.remote_ip
+<<<<<<< HEAD
     if @order.save
       if @order.save
         redirect_to thanks_path
+=======
+    
+     if @order.save
+       if @order.save
+         OrderMailer.thanks_email(@order).deliver
+         render :action => "success"
+>>>>>>> actionmailer
       else
-        render :action => "failure"
+         render :action => "failure"
       end
     else
       render :action => 'new'
