@@ -1,5 +1,5 @@
 <h1> Cart#Show </h1>
-  You have selected <%= @cart.line_items.count %> items.
+<%= render :partial => 'items/cart' %>
   <br>
   <% for line_item in @cart.line_items %>
       <%= image_tag line_item.item.image %>

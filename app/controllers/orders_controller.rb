@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 	
 	 def new
     @order = Order.new
+    @cart = current_cart
   	end
   
   def create
@@ -9,7 +10,7 @@ class OrdersController < ApplicationController
     @order.ip_address = request.remote_ip
     if @order.save
       if @order.save
-        render :action => "success"
+        redirect_to thanks_path
       else
         render :action => "failure"
       end

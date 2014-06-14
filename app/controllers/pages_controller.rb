@@ -4,4 +4,7 @@ class PagesController < ApplicationController
   	@item = Item
   	@items = Item.all
   end
+
+  def thanks
+  end
 end
