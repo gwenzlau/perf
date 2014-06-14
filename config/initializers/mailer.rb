@@ -1,11 +1,11 @@
  require 'tls_smtp'
 
 ActionMailer::Base.smtp_settings =  {
-    :address            => 'vdfv-txl7.accessdomain.com',
+    :address            => ENV["smtpaddress"],
     :port               => 587,
     :domain             => 'nosyparker.herokuapp.com',
-    :user_name          => "grant@theacmeagency.com",
-    :password           => "Fantastic0!",
+    :user_name          => ENV["emailname"],
+    :password           => ENV["emailpass"],
     authentication:       'plain',
     enable_starttls_auto: true  }
   

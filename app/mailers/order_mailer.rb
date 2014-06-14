@@ -1,6 +1,6 @@
 class OrderMailer < ActionMailer::Base
-  default bcc: Proc.new { Admin.pluck(:email) },
-  		  from: "from@example.com"
+  default bcc: "grantwenzlau@gmail.com",
+  		  from: "thanks@nosyparker.com"
 
   def thanks_email(order)
   	@order = order
