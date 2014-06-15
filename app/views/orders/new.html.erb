@@ -4,7 +4,6 @@
 <%= render :partial => 'items/cart' %>
 <%= simple_form_for(@order) do |f| %>
     <%= f.input :name %>
-  
     <%= f.input :email %>
     <%= f.input :address %>
   <%= f.submit "Place Order" %>

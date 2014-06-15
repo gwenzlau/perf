@@ -4,7 +4,7 @@ class LineItemsController < ApplicationController
     @item = Item.find(params[:item_id])
     @line_item = LineItem.create!(:cart => current_cart, :item => @item, :quantity => 1)
     flash[:notice] = "Added #{@item.name} to sample."
-    redirect_to current_cart
+    redirect_to root_path
   end
 
   def destroy
