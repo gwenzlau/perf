@@ -1,8 +1,13 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:new, :create, :edit, :destroy]
 
 	def index
-    @items = Item.all
+    if params[:tag]
+     @items = Item.tagged_with(params[:tag])    
+    else
+      @items = Item.all
+    end
     @cart = current_cart
   end
   
@@ -30,17 +35,17 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to items_url, notice: "Item destroyed."
+    redirect_to items_url
   end
 	# Use strong_parameters for attribute whitelisting
 # Be sure to update your create() and update() controller methods.
 private
     # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      @item = Item.find(params[:id])
-    end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
-def item_params
-  params.require(:item).permit(:image, :name)
-end
+  def item_params
+    params.require(:item).permit(:image, :name, :tag_list)
+  end
 end

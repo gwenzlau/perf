@@ -7,10 +7,10 @@ Item id: <%= @item.id %>
 <br>
 <%= image_tag @item.image %>
 
-
-
-
 <p>
   <%= link_to "View All", items_path %> | 
-  <%= link_to "Edit Item", edit_item_path %>
+  
+  <% if admin_signed_in? %>
+           <%= link_to "Edit Item", edit_item_path %> | 
+  <% end %>
 </p>

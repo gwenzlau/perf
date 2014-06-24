@@ -3,9 +3,14 @@
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
-  <%= f.input :image, label: "Upload an image" %>
-  <%= f.label :name %><br />
+  	<%= f.input :image, label: "Upload an image" %>
+  	<%= f.label :name %>
+  	<br />
     <%= f.text_field :name %>
+	<br />
+    <%= f.label :tag_list %>
+    <br />
+    <%= f.text_field :tag_list %>
 
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-primary" %>

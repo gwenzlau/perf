@@ -16,6 +16,8 @@ Perfume::Application.routes.draw do
        delete ":id", to: "cart#remove_item"#-> DELETE domain.com/cart/56
     end
   end
+
+  get 'tags/:tag', to: 'items#index', as: :tag
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

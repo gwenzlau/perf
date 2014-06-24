@@ -3,12 +3,20 @@
     <%= render :partial => 'cart' %>
     <div id="post" class="post transition-opacity opaque">
 
-      <% for item in @items %>
+      <% @items.each do |item| %>
           <%= link_to (image_tag item.image(:medium)), item %>
           <%= link_to (item.name), item %>
           <%= link_to "Get A Sample", line_items_path(:item_id => item), :method => :post, class: "btn" %>
-          <br>
-        <% end %>
+          <% if admin_signed_in? %> (
+          Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> |
+           <%= link_to "Edit Item", edit_item_path(item) %> | 
+           <%= link_to item, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %> )
+  <% end %>
+           <br>
+      <% end %>
      <%= render :partial => 'sample' %>
   </div>
   </div>

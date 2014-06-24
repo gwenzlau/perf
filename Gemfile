@@ -7,6 +7,7 @@ gem 'simple_form'
 gem "paperclip", "~> 4.1"
 gem 'devise'
 gem "figaro"
+gem 'acts-as-taggable-on'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
