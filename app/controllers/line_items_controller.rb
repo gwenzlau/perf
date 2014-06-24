@@ -8,10 +8,9 @@ class LineItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    @line_item = LineItem.find(params[:id])
+    @line_item = LineItem.find params[:id]
     @line_item.destroy
-  	flash[:notice] = "Removed #{@item.name} from sample list."
+    flash[:notice] = "Removed from sample list."
     redirect_to current_cart
 	end
 

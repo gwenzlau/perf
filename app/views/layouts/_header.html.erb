@@ -1,8 +1,15 @@
-<div style="float:right;">
+<nav class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="/">Nosy Parker</a>
+	</div>
+	 <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav navbar-right">
 	<% if admin_signed_in? %>
           <li><%= link_to "Add New Item", new_item_path %></li>
           <li><%= link_to "Settings", edit_admin_registration_path %></li>
           <li><%= link_to "Log out", destroy_admin_session_path, method: :delete %></li>
-        <% else %>
-<% end %>
+    <% end %>
+	</ul>
 </div>
+</div>
+</nav>

@@ -2,7 +2,7 @@ Perfume::Application.routes.draw do
   devise_for :admins
   resources :line_items
 
-  resources :carts
+
 
   resources :items
 
@@ -10,6 +10,12 @@ Perfume::Application.routes.draw do
 
   root "items#index"
   get "thanks" => 'pages#thanks'
+
+  resources :carts, except: :destroy do
+    collection do
+       delete ":id", to: "cart#remove_item"#-> DELETE domain.com/cart/56
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

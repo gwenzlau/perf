@@ -86,7 +86,25 @@ transition: opacity .4s;
 
 .sample-bottom {
 	align: center;
-	margin-top: 500px;
-	;
+	margin-top: 150px;
+	padding-left: 300px;
+}
 
+#footer {
+position: absolute;
+bottom: 0;
+width: 100%;
+height: 60px;
+}
+#footer > .container {
+padding-right: 15px;
+padding-left: 15px;
+}
+
+.container .text-muted {
+margin: 20px 0;
+}
+
+.text-muted {
+color: #999;
 }

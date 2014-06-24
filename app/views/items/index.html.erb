@@ -1,28 +1,14 @@
 <div id="container">
-  <div id="top">
-    <div id="top-nav">
-      <ul id="links">
-        <li id="title">
-          <a href="/">Nosy Parker</a>
-
-        </li>
-      </ul>
-    </div>
-  </div>
   <div id="content">
     <%= render :partial => 'cart' %>
     <div id="post" class="post transition-opacity opaque">
-     <% for item in @items %>
-     <div class="the-photo">
-      <%= link_to (image_tag item.image), item %>
-     </div>
-    <div class="content-block right-block">
-     <div class="meta the-border transition-height">
-      <%= link_to (item.name), item %>
-      <%= link_to "Get A Sample", line_items_path(:item_id => item), :method => :post, class: "btn" %>
-     </div>
-    </div>
-    <% end %>
+
+      <% for item in @items %>
+          <%= link_to (image_tag item.image(:medium)), item %>
+          <%= link_to (item.name), item %>
+          <%= link_to "Get A Sample", line_items_path(:item_id => item), :method => :post, class: "btn" %>
+          <br>
+        <% end %>
      <%= render :partial => 'sample' %>
   </div>
   </div>
