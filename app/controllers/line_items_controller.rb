@@ -11,7 +11,7 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find params[:id]
     @line_item.destroy
     flash[:notice] = "Removed from sample list."
-    redirect_to current_cart
+    redirect_to(:back)
 	end
 
 end

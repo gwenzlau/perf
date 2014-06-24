@@ -1,6 +1,7 @@
 <div class="sample-bottom">
 <% for line_item in @cart.line_items %>
       <%= image_tag line_item.item.image(:thumb) %>
+      <%= link_to 'X', line_item, method: :delete %>
 <% end %>
 <% if @cart.line_items.count == 5 %>
 <%= link_to "--> Checkout -->", new_order_path %>
